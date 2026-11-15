@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRESHROOM - Dance Music Newspaper</title>
+    <meta name="description" content="Fresh dance music news, events, releases, and artist stories from the underground scene.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#home" class="logo">
+                    <span class="logo-text">FRESHROOM</span>
+                    <span class="logo-sub">Dance music newspaper</span>
+                </a>
+                <nav class="main-nav">
+                    <a href="#home" class="nav-link" data-route="home">Home</a>
+                    <a href="#music" class="nav-link" data-route="music">Music</a>
+                    <a href="#events" class="nav-link" data-route="events">Events</a>
+                    <a href="#articles" class="nav-link" data-route="articles">Articles</a>
+                </nav>
+                <div class="header-actions">
+                    <button id="openSearch" class="icon-btn" aria-label="Search">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                    <button id="accountButton" class="btn-account">Join / Login</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">Live pulse</div>
+                <h1 class="hero-title">Tech house releases, afro house parties, melodic house news, underground club culture, festival alerts.</h1>
+                <p class="hero-description">FRESHROOM covers club nights, festivals, parties, labels, DJs, and every room where house, techno, garage, groove, afro, tropical, and EDM culture keeps moving.</p>
+                <div class="hero-actions">
+                    <a href="#music" class="btn-primary">Read Music</a>
+                    <a href="#events" class="btn-secondary">Find Events</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <div class="container">
+            <div class="content-grid">
+                <!-- LEFT: STORIES -->
+                <div class="stories-section">
+                    <div class="section-header">
+                        <div>
+                            <h2 id="routeLabel" class="section-title">Freshroom Front Page</h2>
+                            <p id="routeTitle" class="section-subtitle">Trending in the dance music industry</p>
+                        </div>
+                        <div class="toolbar">
+                            <select id="sortSelect" class="sort-select">
+                                <option value="trending">Trending</option>
+                                <option value="newest">Newest</option>
+                                <option value="likes">Most liked</option>
+                                <option value="shares">Most shared</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- GENRE TABS -->
+                    <div id="genreTabs" class="genre-tabs"></div>
+
+                    <!-- STORIES GRID -->
+                    <div id="storyGrid" class="story-grid"></div>
+                </div>
+
+                <!-- RIGHT: SIDEBAR -->
+                <aside class="sidebar">
+                    <div class="sidebar-block">
+                        <h3 class="sidebar-title">Upcoming events</h3>
+                        <div id="eventList" class="event-list"></div>
+                    </div>
+
+                    <div class="sidebar-block">
+                        <h3 class="sidebar-title">Scene tags</h3>
+                        <div id="tagCloud" class="tag-cloud"></div>
+                    </div>
+
+                    <div id="miniProfile" class="sidebar-block profile-block"></div>
+
+                    <div class="sidebar-block">
+                        <h3 class="sidebar-title">Your saved stories</h3>
+                        <div id="savedStories" class="saved-list"></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>FRESHROOM - dance music news, releases, festivals, clubs, artists, and culture.</p>
+        </div>
+    </footer>
+
+    <!-- DIALOGS -->
+    <dialog id="storyDialog" class="story-dialog">
+        <button id="closeStory" class="dialog-close" aria-label="Close">×</button>
+        <div id="storyDetail" class="story-detail"></div>
+    </dialog>
+
+    <dialog id="accountDialog" class="account-dialog">
+        <button id="closeAccount" class="dialog-close" aria-label="Close">×</button>
+        <h2>Create account / login</h2>
+        <form id="accountForm" class="account-form">
+            <label>Name <input type="text" id="userName" required></label>
+            <label>Email <input type="email" id="userEmail" required></label>
+            <label>Bio <textarea id="userBio" rows="3"></textarea></label>
+            <button type="submit" class="btn-primary">Enter FRESHROOM</button>
+        </form>
+    </dialog>
+
+    <dialog id="searchDialog" class="search-dialog">
+        <button id="closeSearch" class="dialog-close" aria-label="Close">×</button>
+        <h2>Search FRESHROOM</h2>
+        <input type="search" id="searchInput" placeholder="Search stories..." class="search-input">
+        <div id="searchResults" class="search-results"></div>
+    </dialog>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

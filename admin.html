@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRESHROOM Admin - Publisher Control Room</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <span class="logo-text">FRESHROOM</span>
+                    <span class="logo-sub">Admin Dashboard</span>
+                </a>
+                <nav class="main-nav">
+                    <a href="index.html" class="nav-link">← Back to Site</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <div class="container">
+            <div class="admin-header">
+                <h1 class="section-title">Publisher Control Room</h1>
+                <p class="section-subtitle">Manage stories, publish content, and control your newspaper</p>
+            </div>
+
+            <div id="adminGate" class="admin-gate">
+                <div class="gate-content">
+                    <h2>Admin Access Required</h2>
+                    <p>Only the FRESHROOM owner can publish, edit, or delete site content.</p>
+                    <form id="adminLoginForm">
+                        <label>
+                            Admin Password
+                            <input type="password" id="adminPassword" required>
+                        </label>
+                        <button type="submit" class="btn-primary">Unlock Admin</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="adminPanel" class="admin-panel hidden">
+                <div class="admin-grid">
+                    <div class="publish-section">
+                        <h2 class="section-title">Publish New Story</h2>
+                        <form id="postForm" class="post-form">
+                            <div class="form-row">
+                                <label>
+                                    Title
+                                    <input type="text" id="postTitle" required>
+                                </label>
+                            </div>
+
+                            <div class="form-row-2">
+                                <label>
+                                    Type
+                                    <select id="postType" required>
+                                        <option value="music">Music news</option>
+                                        <option value="event">Event</option>
+                                        <option value="article">Article</option>
+                                        <option value="release">New release</option>
+                                    </select>
+                                </label>
+
+                                <label>
+                                    Genre
+                                    <input type="text" id="postGenre" list="genreList" required>
+                                    <datalist id="genreList">
+                                        <option value="Tech House">
+                                        <option value="House">
+                                        <option value="Melodic House">
+                                        <option value="Afro House">
+                                        <option value="Groove">
+                                        <option value="UK Garage">
+                                        <option value="Tropical House">
+                                        <option value="Deep House">
+                                        <option value="EDM">
+                                        <option value="Electro">
+                                        <option value="Techno">
+                                    </datalist>
+                                </label>
+                            </div>
+
+                            <div class="form-row">
+                                <label>
+                                    Location / Label
+                                    <input type="text" id="postMeta" required>
+                                </label>
+                            </div>
+
+                            <div class="form-row">
+                                <label>
+                                    Summary
+                                    <textarea id="postSummary" rows="3" required></textarea>
+                                </label>
+                            </div>
+
+                            <div class="form-row">
+                                <label>
+                                    Cover Picture
+                                    <input type="file" id="postImage" accept="image/*">
+                                </label>
+                            </div>
+
+                            <div class="form-row">
+                                <label>
+                                    Article Links (one per line: URL | Label)
+                                    <textarea id="postLinks" rows="3" placeholder="https://example.com | Example Link"></textarea>
+                                </label>
+                            </div>
+
+                            <div class="form-row">
+                                <label>
+                                    Full Article
+                                    <textarea id="postBody" rows="8" required></textarea>
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn-primary">Publish Story</button>
+                        </form>
+                    </div>
+
+                    <div class="manage-section">
+                        <h2 class="section-title">Manage Stories</h2>
+                        <div id="adminList" class="admin-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>FRESHROOM Admin - Dance Music Newspaper</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
