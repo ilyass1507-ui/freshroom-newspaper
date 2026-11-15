@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>FRESHROOM Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<header class="adm-header">
+  <a href="index.html" class="adm-logo">FRESHROOM <small>ADMIN</small></a>
+  <div class="adm-right">
+    <button id="logoutBtn" class="btn-ghost hidden" type="button">Log out</button>
+    <a href="index.html" class="btn-ghost">← Back to site</a>
+  </div>
+</header>
+
+<main class="adm-main">
+  <h1 class="adm-title">Publisher Control Room</h1>
+
+  <section id="adminGate" class="gate">
+    <h2>Admin access</h2>
+    <p>Sign in with your admin account.</p>
+    <form id="adminLoginForm" class="stack">
+      <label>Email <input type="email" id="adminEmail" required autocomplete="username"></label>
+      <label>Password <input type="password" id="adminPassword" required autocomplete="current-password"></label>
+      <button class="btn" type="submit">Sign in</button>
+      <p id="loginMsg" class="msg" role="status"></p>
+    </form>
+  </section>
+
+  <div id="adminPanel" class="adm-grid hidden">
+    <section class="card">
+      <h2>Publish new story</h2>
+      <form id="postForm" class="stack">
+        <label>Title <input type="text" id="postTitle" required maxlength="140"></label>
+        <div class="row2">
+          <label>Type
+            <select id="postType" required>
+              <option value="music">Music news</option>
+              <option value="event">Event</option>
+              <option value="article">Article</option>
+              <option value="release">New release</option>
+            </select>
+          </label>
+          <label>Genre
+            <input type="text" id="postGenre" list="genreList" required>
+            <datalist id="genreList">
+              <option value="Tech House"><option value="House"><option value="Melodic House"><option value="Afro House">
+              <option value="Groove"><option value="UK Garage"><option value="Tropical House"><option value="Deep House">
+              <option value="EDM"><option value="Electro"><option value="Techno">
+            </datalist>
+          </label>
+        </div>
+        <div class="row2">
+          <label>Location / Label <input type="text" id="postMeta" required></label>
+          <label>Event date (events only) <input type="date" id="postEventDate"></label>
+        </div>
+        <label>Summary <textarea id="postSummary" rows="3" required></textarea></label>
+        <label>Cover picture <input type="file" id="postImage" accept="image/*"></label>
+        <label>Links (one per line: URL | Label) <textarea id="postLinks" rows="3" placeholder="https://example.com | Example"></textarea></label>
+        <label>Full article <textarea id="postBody" rows="8" required></textarea></label>
+        <button class="btn" type="submit" id="publishBtn">Publish story</button>
+        <p id="postMsg" class="msg" role="status"></p>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Manage stories</h2>
+      <div id="adminList" class="list"></div>
+    </section>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

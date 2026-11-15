@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="FRESHROOM - Dance music newspaper: tech house, afro house, melodic, underground club culture.">
+  <title>FRESHROOM | Dance Music Newspaper</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menuOverlay">
+    <span class="burger"><i></i><i></i></span><span data-i18n="menu">MENU</span>
+  </button>
+  <a href="#top" class="logo" aria-label="FRESHROOM">FRESHROOM</a>
+  <div class="header-right">
+    <button class="icon-btn" id="openSearch" data-i18n="search">RECHERCHE</button>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-lang="fr">FR</button><span>/</span><button data-lang="en">EN</button>
+    </div>
+    <button id="accountButton" class="join-btn" data-i18n="join">REJOINDRE</button>
+  </div>
+</header>
+
+<!-- FULLSCREEN MENU -->
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+  <nav class="menu-nav">
+    <a href="#agenda" data-close data-i18n="nav_agenda">Agenda</a>
+    <a href="#music" data-close data-i18n="nav_music">Musique</a>
+<a href="#articles" data-close data-i18n="nav_articles">Articles</a>
+<a href="#releases" data-close data-i18n="nav_releases">Sorties</a>
+    <a href="#about" data-close data-i18n="nav_about">Le Freshroom</a>
+    <a href="#info" data-close data-i18n="nav_info">Infos pratiques</a>
+    <a href="#newsletter" data-close>Newsletter</a>
+    <a href="admin.html">Admin</a>
+  </nav>
+  <div class="menu-foot">
+    <a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Facebook</a><a href="#">YouTube</a>
+  </div>
+</div>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata" onerror="this.remove()">
+      <source src="media/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-shade"></div>
+    <div class="hero-inner">
+      <span class="badge-live"><i></i> LIVE PULSE</span>
+      <h1 class="hero-title">FRESH<br>ROOM</h1>
+      <p class="hero-sub" data-i18n="hero_sub">Le journal de la musique électronique : tech house, afro house, melodic, club culture.</p>
+      <a href="#agenda" class="btn-big" data-i18n="see_agenda">Voir l'agenda</a>
+    </div>
+    <div class="scroll-hint">SCROLL</div>
+  </section>
+
+  <!-- MARQUEE -->
+  <section class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>TECH HOUSE • AFRO HOUSE • MELODIC • UNDERGROUND • FESTIVAL ALERTS • CLUB CULTURE • NEW RELEASES • </span>
+      <span>TECH HOUSE • AFRO HOUSE • MELODIC • UNDERGROUND • FESTIVAL ALERTS • CLUB CULTURE • NEW RELEASES • </span>
+    </div>
+  </section>
+
+  <!-- AGENDA STRIP -->
+  <section class="section" id="agenda">
+    <div class="container">
+      <h2 class="section-title reveal" data-i18n="upcoming">Prochainement</h2>
+    </div>
+    <div class="strip" id="eventStrip"></div>
+    <div class="container">
+      <a href="#stories" class="link-big reveal" data-route="event" data-i18n="see_agenda">Voir l'agenda</a>
+    </div>
+  </section>
+
+  <!-- ABOUT + GALLERY -->
+  <section class="section about" id="about">
+    <div class="container about-grid">
+      <div class="reveal">
+        <h2 class="section-title" data-i18n="about_title">Au cœur de la culture club</h2>
+        <p class="lead" data-i18n="about_text">FRESHROOM couvre les soirées, festivals, labels et DJs : chaque salle où la house, la techno, le garage, l'afro et l'EDM font vibrer la nuit.</p>
+      </div>
+      <div class="gallery reveal">
+        <div class="tile t1"></div><div class="tile t2"></div><div class="tile t3"></div><div class="tile t4"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPOTLIGHT -->
+  <section class="spotlight" id="spotlight" hidden>
+    <div class="spotlight-img" id="spotlightImg"></div>
+    <div class="spotlight-body reveal">
+      <span class="kicker" id="spotlightKicker"></span>
+      <h2 id="spotlightTitle"></h2>
+      <p id="spotlightText"></p>
+      <button class="btn-outline" id="spotlightBtn" data-i18n="read_more">En savoir plus</button>
+    </div>
+  </section>
+  <!-- MUSIC -->
+  <section class="section" id="music">
+    <div class="container">
+      <h2 class="section-title reveal" data-i18n="nav_music">Musique</h2>
+      <div id="musicList" class="story-list"></div>
+    </div>
+  </section>
+
+  <!-- ARTICLES -->
+  <section class="section alt" id="articles">
+    <div class="container">
+      <h2 class="section-title reveal" data-i18n="nav_articles">Articles</h2>
+      <div id="articlesList" class="story-list"></div>
+    </div>
+  </section>
+
+  <!-- RELEASES -->
+  <section class="section" id="releases">
+    <div class="container">
+      <h2 class="section-title reveal" data-i18n="nav_releases">Sorties</h2>
+      <div id="releasesList" class="story-list"></div>
+    </div>
+  </section>
+  
+  <!-- STORIES -->
+  <section class="section" id="stories">
+    <div class="container">
+      <div class="grid-header">
+        <h2 class="section-title" id="routeLabel">FRONT PAGE</h2>
+        <select id="sortSelect" aria-label="Sort">
+          <option value="trending" data-i18n="s_trending">Tendance</option>
+          <option value="newest" selected data-i18n="s_newest">Plus récent</option>
+          <option value="likes" data-i18n="s_likes">Plus aimé</option>
+        </select>
+      </div>
+      <div id="genreTabs" class="genre-tabs"></div>
+      <div id="storyGrid" class="story-list"></div>
+    </div>
+  </section>
+
+  <!-- 3 BIG LINKS -->
+  <section class="big-links" id="info">
+    <a href="#newsletter"><span>Merchandising</span><b>→</b></a>
+    <a href="#footer"><span data-i18n="nav_info">Infos pratiques</span><b>→</b></a>
+    <a href="mailto:contact@freshroom.com"><span data-i18n="private">Privatisation</span><b>→</b></a>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="section newsletter" id="newsletter">
+    <div class="container">
+      <h2 class="section-title reveal" data-i18n="nl_title">Pour recevoir toutes les actualités du Freshroom, c'est ici !</h2>
+      <form id="newsletterForm" class="nl-form reveal" novalidate>
+        <input type="email" id="nlEmail" placeholder="Email" required autocomplete="email">
+        <input type="text" name="website" id="nlHoney" tabindex="-1" autocomplete="off" class="honey" aria-hidden="true">
+        <label class="check"><input type="checkbox" id="nlConsent" required> <span data-i18n="nl_consent">J'accepte de recevoir l'actualité du Freshroom</span></label>
+        <button type="submit" class="btn-big" data-i18n="send">ENVOYER</button>
+        <p id="nlMsg" class="form-msg" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="footer">
+  <div class="container footer-grid">
+    <div><h4>FRESHROOM News</h4><p>Dance music, clubs &amp; culture.</p><p>9 rue Biscornet,<br>75012 Paris</p></div>
+    <div><h4>Supasonic Records</h4><p>Concerts payants &amp; événements privés</p><p>9 bis rue Biscornet,<br>75012 Paris</p></div>
+    <div class="social"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="TikTok">TT</a><a href="#" aria-label="Facebook">FB</a><a href="#" aria-label="YouTube">YT</a></div>
+  </div>
+  <div class="copyright">©2026 FRESHROOM • Mentions légales • Politique de confidentialité</div>
+</footer>
+
+<!-- DIALOGS -->
+<dialog id="storyDialog"><button id="closeStory" class="dialog-close" aria-label="Close">×</button><div id="storyDetail"></div></dialog>
+
+<dialog id="accountDialog">
+  <button id="closeAccount" class="dialog-close" aria-label="Close">×</button>
+  <h2 data-i18n="join_title">Rejoindre FRESHROOM</h2>
+  <form id="accountForm" class="dlg-form">
+    <label>Nom <input type="text" id="userName" required></label>
+    <label>Email <input type="email" id="userEmail" required></label>
+    <label>Bio <textarea id="userBio" rows="3"></textarea></label>
+    <button type="submit" class="btn-big">ENTRER</button>
+  </form>
+</dialog>
+
+<dialog id="searchDialog">
+  <button id="closeSearch" class="dialog-close" aria-label="Close">×</button>
+  <h2 data-i18n="search">Recherche</h2>
+  <input type="search" id="searchInput" data-i18n-ph="search_ph" placeholder="Rechercher…" autocomplete="off">
+  <div id="searchResults" class="search-results"></div>
+</dialog>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
